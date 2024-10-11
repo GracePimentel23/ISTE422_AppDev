@@ -1016,9 +1016,9 @@ public class EdgeConvertGUI {
                alProductNames.add(productName);
             }
          }
-      } catch (InstantiationException ie) {
+      } catch (InstantiationException ioe) {
          logger.error(ioe); //Grace
-         ie.printStackTrace();
+         ioe.printStackTrace();
       } catch (ClassNotFoundException cnfe) {
          logger.error(cnfe); //Grace
          cnfe.printStackTrace();
