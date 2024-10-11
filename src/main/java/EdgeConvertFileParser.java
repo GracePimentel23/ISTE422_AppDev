@@ -2,7 +2,14 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 
+import org.apache.logging.log4j.LogManager; //Grace
+import org.apache.logging.log4j.Logger; //Grace
+
 public class EdgeConvertFileParser {
+
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class); //Grace
+	
+
    //private String filename = "test.edg";
    private File parseFile;
    private FileReader fr;
@@ -304,11 +311,11 @@ public class EdgeConvertFileParser {
          }
       } // try
       catch (FileNotFoundException fnfe) {
-         System.out.println("Cannot find \"" + inputFile.getName() + "\".");
+         logger.debug("Cannot find \"" + inputFile.getName() + "\"."); //Grace
          System.exit(0);
       } // catch FileNotFoundException
       catch (IOException ioe) {
-         System.out.println(ioe);
+         logger.error(ioe); //Grace
          System.exit(0);
       } // catch IOException
    } // openFile()

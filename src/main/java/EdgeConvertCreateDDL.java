@@ -5,7 +5,12 @@ import javax.swing.event.*;
 import java.io.*;
 import java.util.*;
 
+import org.apache.logging.log4j.LogManager; //Grace
+import org.apache.logging.log4j.Logger; //Grace
+
 public abstract class EdgeConvertCreateDDL {
+   private static final Logger logger = LogManager.getLogger(EdgeConvertCreateDDL.class); //Grace
+   
    static String[] products = {"MySQL"};
    protected EdgeTable[] tables; //master copy of EdgeTable objects
    protected EdgeField[] fields; //master copy of EdgeField objects
@@ -25,6 +30,7 @@ public abstract class EdgeConvertCreateDDL {
    } //EdgeConvertCreateDDL()
 
    public void initialize() {
+      logger.info("Initializing"); //Grace
       numBoundTables = new int[tables.length];
       maxBound = 0;
       sb = new StringBuffer();
@@ -35,6 +41,8 @@ public abstract class EdgeConvertCreateDDL {
          for (int j = 0; j < relatedFields.length; j++) { //step through related fields list
             if (relatedFields[j] != 0) {
                numBound++; //count the number of non-zero related fields
+            }else{
+               logger.info("relatedFields[j] is equal to zero; Value: " + relatedFields[j]); //Grace
             }
          }
          numBoundTables[i] = numBound;

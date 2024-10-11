@@ -1,6 +1,11 @@
 import java.util.StringTokenizer;
 
+import org.apache.logging.log4j.LogManager; //Grace
+import org.apache.logging.log4j.Logger; //Grace
+
 public class EdgeField {
+
+   private static final Logger logger = LogManager.getLogger(EdgeField.class);
    private int numFigure, tableID, tableBound, fieldBound, dataType, varcharValue;
    private String name, defaultValue;
    private boolean disallowNull, isPrimaryKey;
@@ -8,6 +13,7 @@ public class EdgeField {
    public static final int VARCHAR_DEFAULT_LENGTH = 1;
    
    public EdgeField(String inputString) {
+      logger.info("EdgeField object input: " + inputString); //Grace
       StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
       numFigure = Integer.parseInt(st.nextToken());
       name = st.nextToken();
@@ -34,6 +40,7 @@ public class EdgeField {
    }
    
    public void setTableID(int value) {
+      logger.debug("tableID value: " + value); //Grace
       tableID = value;
    }
    
@@ -42,6 +49,7 @@ public class EdgeField {
    }
    
    public void setTableBound(int value) {
+      logger.debug("tableBound value: " + value); //Grace
       tableBound = value;
    }
 
@@ -50,6 +58,7 @@ public class EdgeField {
    }
    
    public void setFieldBound(int value) {
+      logger.debug("fieldBound value: " + value); //Grace
       fieldBound = value;
    }
 
@@ -58,6 +67,7 @@ public class EdgeField {
    }
    
    public void setDisallowNull(boolean value) {
+      logger.debug("disallowNull value: " + value); //Grace
       disallowNull = value;
    }
    
@@ -66,6 +76,7 @@ public class EdgeField {
    }
    
    public void setIsPrimaryKey(boolean value) {
+      logger.debug("isPrimaryKey value: " + value); //Grace
       isPrimaryKey = value;
    }
    
@@ -74,6 +85,7 @@ public class EdgeField {
    }
    
    public void setDefaultValue(String value) {
+      logger.debug("defaultValue: " + value); //Grace
       defaultValue = value;
    }
    
@@ -83,7 +95,10 @@ public class EdgeField {
    
    public void setVarcharValue(int value) {
       if (value > 0) {
+         logger.debug("Setting varcharValue to: " + value); //Grace
          varcharValue = value;
+      } else {
+         logger.warn("WARNING: Invalid dataType value: " + value); // Log a warning for invalid dataType
       }
    }
    public int getDataType() {

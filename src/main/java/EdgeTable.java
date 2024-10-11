@@ -1,6 +1,12 @@
 import java.util.*;
 
+import org.apache.logging.log4j.LogManager; //Grace
+import org.apache.logging.log4j.Logger; //Grace
+
+
 public class EdgeTable {
+
+   private static final Logger logger = LogManager.getLogger(EdgeTable.class); //Grace
    private int numFigure;
    private String name;
    private ArrayList alRelatedTables, alNativeFields;
@@ -15,22 +21,27 @@ public class EdgeTable {
    }
    
    public int getNumFigure() {
+      logger.debug("numFigure returns: " + numFigure); //Grace
       return numFigure;
    }
    
    public String getName() {
+      logger.debug("name returns: " + name); //Grace
       return name;
    }
    
    public void addRelatedTable(int relatedTable) {
+      logger.info("Added a new alRelatedTables"); //Grace
       alRelatedTables.add(new Integer(relatedTable));
    }
    
    public int[] getRelatedTablesArray() {
+      logger.debug("name returns: " + name); //Grace
       return relatedTables;
    }
    
    public int[] getRelatedFieldsArray() {
+      logger.debug("relatedFields returns: " + relatedFields); //Grace
       return relatedFields;
    }
    
@@ -39,10 +50,12 @@ public class EdgeTable {
    }
    
    public int[] getNativeFieldsArray() {
+      logger.debug("nativeFields returns: " + nativeFields); //Grace
       return nativeFields;
    }
 
    public void addNativeField(int value) {
+      logger.info("Added a new alNativeFields"); //Grace
       alNativeFields.add(new Integer(value));
    }
 
@@ -91,6 +104,7 @@ public class EdgeTable {
    }
 
    public String toString() {
+      logger.info("Creating string in toString()"); //Grace
       StringBuffer sb = new StringBuffer();
       sb.append("Table: " + numFigure + "\r\n");
       sb.append("{\r\n");

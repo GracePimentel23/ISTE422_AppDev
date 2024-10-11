@@ -9,7 +9,12 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.lang.reflect.*;
 
+import org.apache.logging.log4j.LogManager; //Grace
+import org.apache.logging.log4j.Logger; //Grace
+
 public class EdgeConvertGUI {
+   
+   private static final Logger logger = LogManager.getLogger(EdgeConvertGUI.class); //Grace
    
    public static final int HORIZ_SIZE = 635;
    public static final int VERT_SIZE = 400;
@@ -82,7 +87,7 @@ public class EdgeConvertGUI {
       try {
          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the OS native LAF, as opposed to default Java LAF
       } catch (Exception e) {
-         System.out.println("Error setting native LAF: " + e);
+         logger.error("Error setting native LAF: " + e); //Grace
       }
       createDTScreen();
       createDRScreen();
@@ -914,7 +919,7 @@ public class EdgeConvertGUI {
             //close the file
             pw.close();
          } catch (IOException ioe) {
-            System.out.println(ioe);
+            logger.error(ioe); //Grace
          }
          dataSaved = true;
       }
@@ -1012,14 +1017,19 @@ public class EdgeConvertGUI {
             }
          }
       } catch (InstantiationException ie) {
+         logger.error(ioe); //Grace
          ie.printStackTrace();
       } catch (ClassNotFoundException cnfe) {
+         logger.error(cnfe); //Grace
          cnfe.printStackTrace();
       } catch (IllegalAccessException iae) {
+         logger.error(iae); //Grace
          iae.printStackTrace();
       } catch (NoSuchMethodException nsme) {
+         logger.error(nsme); //Grace
          nsme.printStackTrace();
       } catch (InvocationTargetException ite) {
+         logger.error(ite); //Grace
          ite.printStackTrace();
       }
       if (alProductNames.size() > 0 && alSubclasses.size() > 0) { //do not recreate productName and objSubClasses arrays if the new path is empty of valid files
@@ -1096,7 +1106,7 @@ public class EdgeConvertGUI {
             //close the file
             pw.close();
          } catch (IOException ioe) {
-            System.out.println(ioe);
+            logger.error(ioe); //Grace
          }
       }
    }

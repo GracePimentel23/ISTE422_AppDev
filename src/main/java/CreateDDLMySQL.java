@@ -4,9 +4,13 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.io.*;
 import java.util.*;
+import org.apache.logging.log4j.LogManager;//Grace
+import org.apache.logging.log4j.Logger; //Grace
+
 
 public class CreateDDLMySQL extends EdgeConvertCreateDDL {
 
+   private static final Logger logger = LogManager.getLogger(CreateDDLMySQL.class); //Grace
    protected String databaseName;
    //this array is for determining how MySQL refers to datatypes
    protected String[] strDataType = {"VARCHAR", "BOOL", "INT", "DOUBLE"};
@@ -126,9 +130,11 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
             return "";
          }
          if (databaseName.equals("")) {
+            logger.warn("Warning: Empty database name"); //Grace
             JOptionPane.showMessageDialog(null, "You must select a name for your database.");
          }
       } while (databaseName.equals(""));
+      logger.info("Database name entered: " + databaseName); //Grace
       return databaseName;
    }
    
@@ -142,6 +148,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
 
    public String getSQLString() {
       createDDL();
+      logger.info("Returning generated SQL string."); //Grace
       return sb.toString();
    }
    
