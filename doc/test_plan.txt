@@ -1,8 +1,10 @@
            T E S T   P L A N   B Y   E P I C   T E A M   N A M E
           -------------------------------------------------------------
 Note: << >> indicates values that would be completed for a sufficient test plan
-EdgeTable:
+EdgeTable (LAUREN):
 --------
+- 
+  -
 
 EdgeField: (GRACE)
 ---------------
@@ -14,16 +16,14 @@ EdgeField: (GRACE)
 - Null 
  - 
 
- 
-
-EdgeConvertFileParser:
-----------------
-
-EdgeConvertCreateDDL:
----------
-
-CreateDDLMySQL:
+CreateDDLMySQL(LOGAN):
 ------
+- 
+  -
+
+-------------------------------------------------------------------------------
+
+                      E X A M P L E    S A M P L E
 
 -------------------------------------------------------------------------------
 :
