@@ -14,7 +14,7 @@ EdgeField: (GRACE)
 - Primary Key
 
 - Null 
- - 
+ -  
 
 CreateDDLMySQL(LOGAN):
 ------
