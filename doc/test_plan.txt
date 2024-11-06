@@ -60,8 +60,42 @@ EdgeField: (GRACE)
 
 CreateDDLMySQL(LOGAN):
 ------
-- 
-  -
+- InitializeTables
+  - Does the initialize function correctly keep track of the added table?
+    - “tblName” for table name within the internal state table array
+  - Does the initialize function correctly keep track of multiple added tables?
+    - “tblName” for table first table name within the internal state table array
+    - “anotherName” for second table name within the internal state table array
+
+- InitializeFields
+  - Does the initialize function correctly keep track of the added field?
+    - “fieldName” for field name within the internal state field array
+  - Does the initialize function correctly keep track of multiple added fields?
+    - “tblName” for table first table name within the internal state field array
+    - “fieldName2” for second field name within the internal state field array
+
+-InitializeMaxBounds
+  - Does the initialize function correctly keep track of the max bound of the table?
+	- “1” for maxBound of testTable’s one bound field
+  - Does the initialize function correctly keep track of the max bound with multiple tables?
+	- “2” for maxBound, should correlate to ddl2’s tesTable2, which has 2 bound fields 
+
+-TableGetter
+  - Does the table getter access the table given the correct figure number?
+    - “tblName” for the name of the returned table from getter
+  - Does the table getter access the table given the correct figure number with multiple tables?
+    - “anotherName” for name of returned table from getter
+  - Does the table getter return null given the incorrect figure number?
+    - null for the returned table object
+
+-FieldGetter
+  - Does the field getter access the field given the correct figure number?
+    - “fieldName” for the name of the returned field from getter
+  - Does the field getter access the field given the correct figure number with multiple tables?
+    - “fieldName2” for name of returned field from getter
+  - Does the field getter return null given the incorrect figure number?
+    - null for the returned table object
+
 
 -------------------------------------------------------------------------------
 
