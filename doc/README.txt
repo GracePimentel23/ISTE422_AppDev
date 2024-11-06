@@ -9,8 +9,8 @@ Instructions:
 2. gradle clean build
 or ./gradlew clean build
 
-3. gradle test  *one file below*
-    or ./gradlew test  *one file below*
-                -EdgeField      (Grace)
-                -EdgeTable      (Lauren)
-                -CreateDDLMySQL (Logan)
+3. gradle test  --tests *one file below*
+    or ./gradlew test  -tests *one file below*
+                -EdgeFieldTest      (Grace)
+                -EdgeTableTest      (Lauren)
+                -CreateDDLMySQLTest (Logan) 

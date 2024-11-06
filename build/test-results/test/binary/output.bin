@@ -1,0 +1,25 @@
+:11:16.461 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.465 INFO class:EdgeField - EdgeField object input: 1|TestField
+a11:16.465 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in VarcharValue
+:11:16.466 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.467 INFO class:EdgeField - EdgeField object input: 1|TestField
+<11:16.467 INFO class:EdgeFieldTest - Testing the constuctor
+:11:16.468 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.468 INFO class:EdgeField - EdgeField object input: 1|TestField
+\11:16.469 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in TableID
+:11:16.469 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.470 INFO class:EdgeField - EdgeField object input: 1|TestField
+_11:16.471 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in TableBound
+:11:16.472 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.473 INFO class:EdgeField - EdgeField object input: 1|TestField
+]11:16.473 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in DataType
+S11:16.473 INFO class:EdgeFieldTest - Test value that shouldnt work - Out of bounds
+:11:16.474 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.474 INFO class:EdgeField - EdgeField object input: 1|TestField
+a11:16.474 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in DefaultValue
+:11:16.475 INFO class:EdgeFieldTest - Initialize EdgeField
+E11:16.475 INFO class:EdgeField - EdgeField object input: 1|TestField
+_11:16.476 INFO class:EdgeFieldTest - Testing whether we will recieve what we set in FieldBound
+	:11:16.477 INFO class:EdgeFieldTest - Initialize EdgeField
+	E11:16.477 INFO class:EdgeField - EdgeField object input: 1|TestField
+	;11:16.478 INFO class:EdgeFieldTest - Tests the primary key

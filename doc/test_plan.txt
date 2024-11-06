@@ -8,13 +8,56 @@ EdgeTable (LAUREN):
 
 EdgeField: (GRACE)
 ---------------
-- Creation
-  -
+- Constructor Test
+  - Does the constructor initialize correctly?
+    - <<Create a new EdgeField instance with input "1|TestField".>>
+      - "1" for numFigure
+      - "TestField" for name
 
-- Primary Key
+- TableID Tests
+  - Can TableID be set and retrieved correctly?
+    - Set: <<create expected tableID >>
+    - Get: should revieve << expected tableID >>
 
-- Null 
- -  
+- FieldBound Tests
+  - Can TableBound be set and retrieved correctly?
+    - Set: <<create expected FieldBound >>
+    - Get: should revieve << expected FieldBound >>
+
+- PrimaryKey Tests 
+ -  What result will I get if PrimaryKey is true or false? 
+ - Can PrimaryKey be retrieved correctly if true?
+    - Set: << create true >>
+    - Get: should revieve << expected true >>
+ - Can PrimaryKey be retrieved correctly if false?
+    - Set: << create false >>
+    - Get: should revieve << expected false >>
+
+ - DefaultValue Tests 
+  -  Can DefaultValue be set and retrieved correctly?
+    - Set: <<create expected default value >>
+    - Get: should revieve << expected default value >>
+
+ - VarcharValue Tests 
+  -  Does VarcharValue handle valid and invalid values correctly?
+    - Valid value?
+      - Set: <<create expected valid varchar value >>
+      - Get: should revieve << expected valid varchar value >>
+    - Invalid value?
+      - Set: <<create expected valid varchar value >>
+      - Get: should revieve << expected invalid varchar value >>
+      - Should Fail
+
+
+ - DataType Tests 
+  -  Does DataType handle valid and invalid indexs correctly?
+    - Valid value?
+      - Set: <<create expected valid dataType index >>
+      - Get: should revieve << expected valid dataType index >>
+    - Invalid value?
+      - Set: <<create expected valid dataType index >>
+      - Get: should revieve << expected invalid  dataType index >>
+      - Should Fail
 
 CreateDDLMySQL(LOGAN):
 ------
