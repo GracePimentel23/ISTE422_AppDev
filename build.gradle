@@ -18,6 +18,13 @@ application {
     mainClass = "RunEdgeConvert"
 }
 
+task runCreateDDLTest(type: JavaExec) {
+    group = "Execution"
+    description = "Run CreateDDLTest class"
+    classpath = sourceSets.test.runtimeClasspath
+    main = "CreateDDLTest"
+}
+
 
 repositories {
     mavenCentral()
