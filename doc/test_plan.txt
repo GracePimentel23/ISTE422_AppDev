@@ -3,8 +3,7 @@
 Note: << >> indicates values that would be completed for a sufficient test plan
 EdgeTable (LAUREN):
 --------
-- 
-  -
+not provided at the moment
 
 EdgeField: (GRACE)
 ---------------

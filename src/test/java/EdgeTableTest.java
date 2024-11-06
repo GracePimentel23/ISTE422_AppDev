@@ -21,7 +21,7 @@ public class EdgeTableTest {
         else{
             opt1 = Long.parseLong(str1);
         }
-        assertEquals("numFigure was initialied as 1 and should be 1",(long)opt1,testObj.getNumFigure());
+        assertEquals("numFigure was initialized as 1 and should be 1",(long)opt1,testObj.getNumFigure());
     }
 
     @Test
@@ -43,5 +43,20 @@ public class EdgeTableTest {
     @Test
     public void testGetRelatedFieldsArray(){
         assertEquals(null, testObj.getRelatedFieldsArray());
+    }
+
+    @Test 
+    public void testSetRelatedField(){
+
+    }
+
+    @Test
+    public void testGetNativeFieldsArray(){
+
+    }
+
+    @Test
+    public void testAddNativeField(){
+        
     }
 }

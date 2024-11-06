@@ -34,8 +34,10 @@ Known Failing Test(on purpose):
     Grace:
         - varcharValTest
         - dataTypeTest
+    Logan:
+        none
 -------------------------------------------------------------
 Disclaimer:
 - RLES was acting up for both Logan and Lauren
 - Grace used her mac so she did not have issues with RLES - tried commiting for them
-- Lauren's program might have errors so I recommend running individually
+- Please run individually
