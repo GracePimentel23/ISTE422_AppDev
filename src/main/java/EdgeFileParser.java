@@ -18,10 +18,12 @@ public class EdgeFileParser extends EdgeConvertFileParser {
         tables = new ArrayList<>();
         fields = new ArrayList<>();
         connectors = new ArrayList<>();
+        this.parseFile();
     }
 
     @Override
-    public void parseFile() throws IOException {
+    public void parseFile() {
+        try{
         br = openFile(file);
         while ((currentLine = br.readLine()) != null) {
             currentLine = currentLine.trim();
@@ -32,7 +34,13 @@ public class EdgeFileParser extends EdgeConvertFileParser {
             }
         }
         br.close();
+    }catch(FileNotFoundException fnfe){
+        System.out.println("Error: " + fnfe);
+    }catch(IOException ioe){
+        System.out.println("Error: " + ioe);
     }
+    }
+
 
     private void parseFigure(String currentLine) throws IOException {
         numFigure = Integer.parseInt(currentLine.substring(currentLine.indexOf(" ") + 1));
@@ -144,15 +152,24 @@ public class EdgeFileParser extends EdgeConvertFileParser {
 
     @Override
     public EdgeTable[] getEdgeTables() {
-        return tables.toArray(new EdgeTable[0]);
+        if(tables != null){
+           return (EdgeTable[])tables.toArray(new EdgeTable[tables.size()]);
+        }
+        return null;
     }
 
     @Override
     public EdgeField[] getEdgeFields() {
-        return fields.toArray(new EdgeField[0]);
+        if(fields != null){
+           return (EdgeField[])fields.toArray(new EdgeField[fields.size()]);
+        }
+        return null;
     }
 
     public EdgeConnector[] getEdgeConnectors() {
-        return connectors.toArray(new EdgeConnector[0]);
-    }
+         if(connectors != null){
+            return (EdgeConnector[])connectors.toArray(new EdgeConnector[connectors.size()]);
+                 }
+         return null;
+         }
 }
