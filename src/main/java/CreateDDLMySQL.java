@@ -64,7 +64,16 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
                   if (currentField.getFieldBound() != 0) {
                      numForeignKey++;
                   }
-                  sb.append(",\r\n"); //end of field
+		   
+
+		  //Logan: adds comma at end of field only if there are more fields or constraints
+		  if(nativeFieldCount < (nativeFields.length - 1) ){
+		    sb.append(",\r\n");
+		  }else{
+		    if(numForeignKey > 0 || numPrimaryKey > 0){
+                       sb.append(",\r\n");
+		       }
+		  }//end of field
                }
                if (numPrimaryKey > 0) { //table has primary key(s)
                   sb.append("CONSTRAINT " + tables[tableCount].getName() + "_PK PRIMARY KEY (");
@@ -98,6 +107,30 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
                   }
                   sb.append("\r\n");
                }
+	       //---HERE---
+	       //Logan: checks for related fields in other table, if exists and field is not primary, add unique constraint "UNIQUE (fieldName)"
+	      for (int tableCount2 = 0; tableCount2 < numBoundTables.length; tableCount2++) { //step through list of tables
+		int[] relatedFields2 = tables[tableCount2].getRelatedFieldsArray();
+		int[] nativeFields2 = tables[tableCount2].getNativeFieldsArray();
+		for (int i = 0; i < relatedFields2.length; i++) {
+			if(relatedFields2[i] != 0){
+		           //checks if related field refers to current table above
+			   System.out.println(getField(nativeFields2[i]).getTableBound());
+			  
+			   if(getTable(getField(nativeFields2[i]).getTableBound()).getName().equals(tables[tableCount].getName())){
+			      //if refered field is not a primary key, adds unique constraint
+			      
+			      if(!getField(relatedFields2[i]).getIsPrimaryKey()){
+				 sb.append(",\r\n");
+			         sb.append("UNIQUE (" + getField(relatedFields2[i]).getName() + ")" );
+			      }
+			   }
+			}
+		}
+	      }
+
+	       
+
                sb.append(");\r\n\r\n"); //end of table
             }
          }
