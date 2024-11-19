@@ -114,9 +114,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
 		int[] nativeFields2 = tables[tableCount2].getNativeFieldsArray();
 		for (int i = 0; i < relatedFields2.length; i++) {
 			if(relatedFields2[i] != 0){
-		           //checks if related field refers to current table above
-			   System.out.println(getField(nativeFields2[i]).getTableBound());
-			  
+		           //checks if related field refers to current table above  
 			   if(getTable(getField(nativeFields2[i]).getTableBound()).getName().equals(tables[tableCount].getName())){
 			      //if refered field is not a primary key, adds unique constraint
 			      
