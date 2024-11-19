@@ -9,6 +9,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.lang.reflect.*;
 
+
 import org.apache.logging.log4j.LogManager; //Grace
 import org.apache.logging.log4j.Logger; //Grace
 
@@ -33,7 +34,7 @@ public class EdgeConvertGUI {
    EdgeRadioButtonListener radioListener;
    EdgeWindowListener edgeWindowListener;
    CreateDDLButtonListener createDDLListener;
-   private EdgeConvertFileParser ecfp;
+   private EdgeFileParser ecfp;
    private EdgeConvertCreateDDL eccd;
    private static PrintWriter pw;
    private EdgeTable[] tables; //master copy of EdgeTable objects
@@ -905,7 +906,7 @@ public class EdgeConvertGUI {
          try {
             pw = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, false)));
             //write the identification line
-            pw.println(EdgeConvertFileParser.SAVE_ID);
+            //pw.println(EdgeConvertFileParser.SAVE_ID); - Error waiting for Lauren
             //write the tables 
             pw.println("#Tables#");
             for (int i = 0; i < tables.length; i++) {
@@ -1198,7 +1199,7 @@ public class EdgeConvertGUI {
             returnVal = jfcEdge.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                parseFile = jfcEdge.getSelectedFile();
-               ecfp = new EdgeConvertFileParser(parseFile);
+               ecfp = new EdgeFileParser(parseFile); //Changed - Grace
                tables = ecfp.getEdgeTables();
                for (int i = 0; i < tables.length; i++) {
                   tables[i].makeArrays();
@@ -1237,9 +1238,9 @@ public class EdgeConvertGUI {
             returnVal = jfcEdge.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                saveFile = jfcEdge.getSelectedFile();
-               ecfp = new EdgeConvertFileParser(saveFile);
-               tables = ecfp.getEdgeTables();
-               fields = ecfp.getEdgeFields();
+               //ecfp = new saveFileParser(saveFile); //Changed/ Waiting for Lauren - Grace
+               //tables = ecfp.getEdgeTables();
+               //fields = ecfp.getEdgeFields();
                ecfp = null;
                populateLists();
                parseFile = null;
